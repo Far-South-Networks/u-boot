@@ -1,3 +1,9 @@
+u-boot-wanderer (1.17) xenial; urgency=medium
+
+  * Increase SPI timeout threshold 
+
+ -- Gavin <gavin@farsouthnet.com>  Mon, 19 Dec 2019 04:38:23 +0200
+ 
 u-boot-wanderer (1.16) xenial; urgency=medium
 
   * Support bionic build
