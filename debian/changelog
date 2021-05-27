@@ -3,6 +3,7 @@ u-boot-wanderer (1.19) buster; urgency=medium
   * Add a 3 boot try to work around the fs_devread_error seen when trying to load the boot files.
   * Add default env to boot from mmc1 first incase we get a "Warning - spi_flash_read() failed, using default environment"
   * Add a systemctl service to check and clear any left over boot dev definitions for a particular device.
+  * Double the SUN6I_SPI_TIMEOUT_US timeout to allow adequate time for the transfer to complete.
 
  -- Gavin <gavin@farsouthnet.com>  Thu, 27 May 2021 13:15:23 +0200
 
