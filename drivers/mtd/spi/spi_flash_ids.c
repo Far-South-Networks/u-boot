@@ -54,6 +54,7 @@ const struct spi_flash_info spi_flash_ids[] = {
 	{"at25df321a",     INFO(0x1f4701, 0x0, 64 * 1024,    64, SECT_4K) },
 	{"at25df321",      INFO(0x1f4700, 0x0, 64 * 1024,    64, SECT_4K) },
 	{"at26df081a",     INFO(0x1f4501, 0x0, 64 * 1024,    16, SECT_4K) },
+	{"at25sf161",      INFO(0x1f8601, 0x0, 64 * 1024,    32, SECT_4K) },
 #endif
 #ifdef CONFIG_SPI_FLASH_EON		/* EON */
 	{"en25q32b",	   INFO(0x1c3016, 0x0, 64 * 1024,    64, 0) },
