@@ -3,4 +3,4 @@ tools/env/fw_printenv usr/share/u-boot-wanderer/
 debian/conf/fw_env.config /etc/
 debian/conf/update-uboot usr/share/u-boot-wanderer/
 debian/conf/bootnext usr/share/u-boot-wanderer/
-
+debian/conf/checkboot usr/share/u-boot-wanderer/

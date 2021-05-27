@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Set next device to boot (only one time). After this is attempted, next
 # boot will be back to usual priority:
@@ -19,8 +19,29 @@ SETENV=/usr/share/u-boot-wanderer/fw_setenv
 set -e
 
 # Standardised boot command for next selected device
-BOOTCMD_NEXT='if test -e ${boot_next}; then echo "Trying to boot next: ${boot_next}"; bn=${boot_next}; setenv boot_next; saveenv; run bootcmd_${bn}; fi'
+#old boot method
+#BOOTCMD_NEXT='sleep 1; if test -e ${boot_next}; then echo "Try (1) boot next: ${boot_next}"; bn=${boot_next}; setenv boot_next; saveenv; sleep 1; run bootcmd_${bn}; fi'
+#$SETENV bootcmd_next "${BOOTCMD_NEXT}"
+#$SETENV boot_targets "next fel pxe usb0 mmc1 mmc1 mmc1 mmc0 mmc0 mmc0"
+#$SETENV boot_next $BN
 
-$SETENV bootcmd_next "${BOOTCMD_NEXT}"
-$SETENV boot_targets "next fel pxe usb0 mmc1 mmc0"
-$SETENV boot_next $BN
+#3 try boot method
+if [[ $BN == "mmc0" ]]; then
+        BOOTCMD_NEXT1='sleep 1; if test -e ${boot_next1}; then echo "Try (1) boot next: ${boot_next1}"; bn=${boot_next1}; setenv boot_next1; saveenv; sleep 1; run bootcmd_${bn}; fi'
+        BOOTCMD_NEXT2='sleep 1; if test -e ${boot_next2}; then echo "Try (2) boot next: ${boot_next2}"; bn=${boot_next2}; setenv boot_next2; saveenv; sleep 1; run bootcmd_${bn}; fi'
+        BOOTCMD_NEXT3='sleep 1; if test -e ${boot_next3}; then echo "Try (3) boot next: ${boot_next3}"; bn=${boot_next3}; setenv boot_next3; saveenv; sleep 1; run bootcmd_${bn}; fi'
+
+        $SETENV bootcmd_next1 "${BOOTCMD_NEXT1}"
+        $SETENV bootcmd_next2 "${BOOTCMD_NEXT2}"
+        $SETENV bootcmd_next3 "${BOOTCMD_NEXT3}"
+        $SETENV boot_targets "next1 next2 next3 fel pxe usb0 mmc1 mmc1 mmc1 mmc0 mmc0 mmc0"
+        $SETENV boot_next1 $BN
+        $SETENV boot_next2 $BN
+        $SETENV boot_next3 $BN
+else
+        BOOTCMD_NEXT1='sleep 1; if test -e ${boot_next1}; then echo "Try (1) boot next: ${boot_next1}"; bn=${boot_next1}; setenv boot_next1; saveenv; sleep 1; run bootcmd_${bn}; fi'
+        $SETENV bootcmd_next1 "${BOOTCMD_NEXT1}"
+        $SETENV boot_targets "next1 next2 next3 fel pxe usb0 mmc1 mmc1 mmc1 mmc0 mmc0 mmc0"
+        $SETENV boot_next1 $BN
+fi
+
