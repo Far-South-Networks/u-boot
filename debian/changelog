@@ -1,3 +1,11 @@
+u-boot-wanderer (1.17) xenial; urgency=medium
+
+  * Add a 3 boot try to work around the fs_devread_error seen when trying to load the boot files.
+  * Add default env to boot from mmc1 first incase we get a "Warning - spi_flash_read() failed, using default environment"
+  * Add a systemctl service to check and clear any left over boot dev definitions for a particular device.
+
+ -- Gavin <gavin@farsouthnet.com>  Thu, 27 May 2021 12:14:23 +0200
+
 u-boot-wanderer (1.16) xenial; urgency=medium
 
   * Support bionic build

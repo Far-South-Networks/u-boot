@@ -25,6 +25,7 @@ fi
 
 case "$1" in
     configure|reconfigure)
+		chmod +x /usr/share/u-boot-wanderer/checkboot
     	# copy u-boot to boot device
     	echo "Updating u-boot to default boot device..."
     	/usr/share/u-boot-wanderer/update-uboot

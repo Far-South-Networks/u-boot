@@ -1,0 +1,9 @@
+[Unit]
+Description=Check and clear any set bootnext options.
+
+[Service]
+Type=simple
+ExecStart=/usr/share/u-boot-wanderer/checkboot
+
+[Install]
+WantedBy=multi-user.target

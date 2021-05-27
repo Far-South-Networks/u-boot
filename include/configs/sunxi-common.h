@@ -367,8 +367,8 @@ extern int soft_i2c_gpio_scl;
 #ifdef CONFIG_MMC
 #if CONFIG_MMC_SUNXI_SLOT_EXTRA != -1
 #define BOOTENV_DEV_MMC_AUTO(devtypeu, devtypel, instance)		\
-	BOOTENV_DEV_MMC(MMC, mmc, 0)					\
 	BOOTENV_DEV_MMC(MMC, mmc, 1)					\
+	BOOTENV_DEV_MMC(MMC, mmc, 0)					\
 	"bootcmd_mmc_auto="						\
 		"if test ${mmc_bootdev} -eq 1; then "			\
 			"run bootcmd_mmc1; "				\
@@ -383,7 +383,8 @@ extern int soft_i2c_gpio_scl;
 
 #define BOOT_TARGET_DEVICES_MMC(func) func(MMC_AUTO, mmc_auto, na)
 #else
-#define BOOT_TARGET_DEVICES_MMC(func) func(MMC, mmc, 0)
+//We need to define mmc1 as the primary and not mmc0 for wanderer.2
+#define BOOT_TARGET_DEVICES_MMC(func) func(MMC, mmc, 1) func(MMC, mmc, 0)
 #endif
 #else
 #define BOOT_TARGET_DEVICES_MMC(func)

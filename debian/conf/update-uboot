@@ -63,7 +63,7 @@ copy_to_dev() {
   sync
   echo "Copied u-boot to $dev"
   # Re ticket #2014 - make sure boot order is correct
-  $SETENV boot_targets "next fel pxe usb0 mmc1 mmc0"
+  $SETENV boot_targets "next1 next2 next3 fel pxe usb0 mmc1 mmc1 mmc1 mmc0 mmc0 mmc0"
   return 0
 }
 
