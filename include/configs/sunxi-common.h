@@ -381,7 +381,9 @@ extern int soft_i2c_gpio_scl;
 #define BOOTENV_DEV_NAME_MMC_AUTO(devtypeu, devtypel, instance) \
 	"mmc_auto "
 
-#define BOOT_TARGET_DEVICES_MMC(func) func(MMC_AUTO, mmc_auto, na)
+//#define BOOT_TARGET_DEVICES_MMC(func) func(MMC_AUTO, mmc_auto, na)
+#define BOOT_TARGET_DEVICES_MMC1(func) func(MMC, mmc, 1)
+#define BOOT_TARGET_DEVICES_MMC0(func) func(MMC, mmc, 0)
 #else
 //We need to define mmc1 as the primary and not mmc0 for wanderer.2
 #define BOOT_TARGET_DEVICES_MMC(func) func(MMC, mmc, 1) func(MMC, mmc, 0)
@@ -432,12 +434,17 @@ extern int soft_i2c_gpio_scl;
 		"fi; fi\0"
 #define BOOTENV_DEV_NAME_PXE2(devtypeu, devtypel, instance) \
 	"pxe "
-
+//Default boot_targets
 #define BOOT_TARGET_DEVICES(func) \
 	func(FEL, fel, na) \
 	func(PXE2, pxe, na) \
 	BOOT_TARGET_DEVICES_USB(func) \
-	BOOT_TARGET_DEVICES_MMC(func) \
+	BOOT_TARGET_DEVICES_MMC1(func) \
+	BOOT_TARGET_DEVICES_MMC1(func) \
+	BOOT_TARGET_DEVICES_MMC1(func) \
+	BOOT_TARGET_DEVICES_MMC0(func) \
+	BOOT_TARGET_DEVICES_MMC0(func) \
+	BOOT_TARGET_DEVICES_MMC0(func) \
 	BOOT_TARGET_DEVICES_SCSI(func) \
 	func(DHCP, dhcp, na)
 #endif

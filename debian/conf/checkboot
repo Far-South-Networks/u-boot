@@ -4,13 +4,15 @@ DEV=$(df -l --output=source)
 SETENV=/usr/share/u-boot-wanderer/fw_setenv
 
 if [[ "$DEV" == *"mmcblk0"* ]]; then
-        #Device is mmc0
-        echo "Clear boot_next options for mmc0"
-        $SETENV boot_next1
-        sleep 1
-        $SETENV boot_next2
-        sleep 1
-        $SETENV boot_next3
+	#Device is mmc0
+	echo "Clear boot_next options for mmc0"
+	$SETENV boot_next1
+	sleep 0.5
+	$SETENV boot_next2
+	sleep 0.5
+	$SETENV boot_next3
+	sleep 0.5
+	/usr/share/u-boot-wanderer/update-uboot
 else
-        echo "Nothing to do for mmc1"
+	echo "Nothing to do for mmc1"
 fi
