@@ -1,3 +1,9 @@
+u-boot-wanderer (1.22) buster; urgency=medium
+
+  * Take 2 for boot reordering 
+
+ -- Gavin <gavin@farsouthnet.com>  Fri, 28 May 2021 17:04:23 +0200
+
 u-boot-wanderer (1.21) buster; urgency=medium
 
   * Fix boot device list
