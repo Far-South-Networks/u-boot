@@ -1,3 +1,9 @@
+u-boot-wanderer (1.21) buster; urgency=medium
+
+  * Fix boot device list
+
+ -- Gavin <gavin@farsouthnet.com>  Fri, 28 May 2021 16:26:23 +0200
+
 u-boot-wanderer (1.20) buster; urgency=medium
 
   * Update default boot-targets from "fel pxe usb0 mmc_auto dhcp" to "fel pxe usb0 mmc1 mmc1 mmc1 mmc0 mmc0 mmc0 dhcp"
