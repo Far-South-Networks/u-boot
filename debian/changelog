@@ -1,3 +1,9 @@
+u-boot-wanderer (1.24) buster; urgency=medium
+
+  * Reorder default boot devices
+
+ -- Gavin <gavin@farsouthnet.com>  Sat, 29 May 2021 17:40:23 +0200
+ 
 u-boot-wanderer (1.23) buster; urgency=medium
 
   * workaround the fs_devread_error when failing to read the boot files
