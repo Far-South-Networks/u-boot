@@ -336,7 +336,17 @@
 #define BOOTENV_DEV_NAME(devtypeu, devtypel, instance) \
 	BOOTENV_DEV_NAME_##devtypeu(devtypeu, devtypel, instance)
 #define BOOTENV_BOOT_TARGETS \
-	"boot_targets=" BOOT_TARGET_DEVICES(BOOTENV_DEV_NAME) "\0"
+//	"boot_targets=" BOOT_TARGET_DEVICES(BOOTENV_DEV_NAME) "\0"
+// workaround the fs_devread_error when failing to read the boot files
+	"boot_targets=" BOOTENV_DEV_NAME_BLKDEV(MMC, mmc, 1) \
+					BOOTENV_DEV_NAME_BLKDEV(MMC, mmc, 1) \
+					BOOTENV_DEV_NAME_BLKDEV(MMC, mmc, 1) \
+					BOOTENV_DEV_NAME_BLKDEV(MMC, mmc, 0) \
+					BOOTENV_DEV_NAME_BLKDEV(MMC, mmc, 0) \
+					BOOTENV_DEV_NAME_BLKDEV(MMC, mmc, 0) \
+					BOOTENV_DEV_NAME_BLKDEV(USB, usb, 0) \
+					BOOTENV_DEV_NAME_PXE(PXE, pxe, na) \
+					BOOTENV_DEV_NAME_DHCP(DHCP, dhcp, na)
 
 #define BOOTENV_DEV(devtypeu, devtypel, instance) \
 	BOOTENV_DEV_##devtypeu(devtypeu, devtypel, instance)

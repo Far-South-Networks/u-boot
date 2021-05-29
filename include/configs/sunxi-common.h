@@ -440,11 +440,7 @@ extern int soft_i2c_gpio_scl;
 	func(PXE2, pxe, na) \
 	BOOT_TARGET_DEVICES_USB(func) \
 	BOOT_TARGET_DEVICES_MMC1(func) \
-	BOOTENV_DEV_NAME(MMC, mmc, 1) \
-	BOOTENV_DEV_NAME(MMC, mmc, 1) \
 	BOOT_TARGET_DEVICES_MMC0(func) \
-	BOOTENV_DEV_NAME(MMC, mmc, 0) \
-	BOOTENV_DEV_NAME(MMC, mmc, 0) \
 	BOOT_TARGET_DEVICES_SCSI(func) \
 	func(DHCP, dhcp, na)
 
