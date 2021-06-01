@@ -1,3 +1,9 @@
+u-boot-wanderer (1.25) buster; urgency=medium
+
+  * Add delays for reading the boot files.
+
+ -- Gavin <gavin@farsouthnet.com>  Tue, 01 May 2021 13:37:23 +0200
+ 
 u-boot-wanderer (1.24) buster; urgency=medium
 
   * Reorder default boot devices

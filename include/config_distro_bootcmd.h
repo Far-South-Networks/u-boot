@@ -336,7 +336,7 @@
 #define BOOTENV_DEV_NAME(devtypeu, devtypel, instance) \
 	BOOTENV_DEV_NAME_##devtypeu(devtypeu, devtypel, instance)
 #define BOOTENV_BOOT_TARGETS \
-	"boot_targets= fel pxe usb0 mmc1 mmc1 mmc1 mmc0 mmc0 mmc0" "\0"
+	"boot_targets= fel pxe usb0 mmc1 mmc1 mmc1 mmc1 mmc1 mmc0 mmc0 mmc0 mmc0 mmc0" "\0"
 
 //ORIG:	"boot_targets=" BOOT_TARGET_DEVICES(BOOTENV_DEV_NAME) "\0"
 // workaround the fs_devread_error when failing to read the boot files
@@ -367,7 +367,7 @@
 				"${devnum}:${distro_bootpart} "           \
 				"${prefix}extlinux/extlinux.conf; then "  \
 			"echo Found ${prefix}extlinux/extlinux.conf; "    \
-			"run boot_extlinux; "                             \
+			"sleep 1; run boot_extlinux; "                             \
 			"echo SCRIPT FAILED: continuing...; "             \
 		"fi\0"                                                    \
 	\
@@ -383,7 +383,7 @@
 					"${prefix}${script}; then "       \
 				"echo Found U-Boot script "               \
 					"${prefix}${script}; "            \
-				"run boot_a_script; "                     \
+				"sleep 1; run boot_a_script; "                     \
 				"echo SCRIPT FAILED: continuing...; "     \
 			"fi; "                                            \
 		"done\0"                                                  \
@@ -392,8 +392,8 @@
 		"echo Scanning ${devtype} "                               \
 				"${devnum}:${distro_bootpart}...; "       \
 		"for prefix in ${boot_prefixes}; do "                     \
-			"run scan_dev_for_extlinux; "                     \
-			"run scan_dev_for_scripts; "                      \
+			"sleep 1; run scan_dev_for_extlinux; "                     \
+			"sleep 1; run scan_dev_for_scripts; "                      \
 		"done;"                                                   \
 		SCAN_DEV_FOR_EFI                                          \
 		"\0"                                                      \
@@ -404,7 +404,7 @@
 		"for distro_bootpart in ${devplist}; do "                 \
 			"if fstype ${devtype} "                           \
 					"${devnum}:${distro_bootpart} "   \
-					"bootfstype; then "               \
+					"bootfstype; then sleep 1;"               \
 				"run scan_dev_for_boot; "                 \
 			"fi; "                                            \
 		"done\0"                                                  \
@@ -413,7 +413,7 @@
 	\
 	"distro_bootcmd=" BOOTENV_SET_SCSI_NEED_INIT                      \
 		"for target in ${boot_targets}; do "                      \
-			"run bootcmd_${target}; "                         \
+			"sleep 1; run bootcmd_${target}; "                         \
 		"done\0"
 
 #ifndef CONFIG_BOOTCOMMAND

@@ -2,17 +2,26 @@
 
 DEV=$(df -l --output=source)
 SETENV=/usr/share/u-boot-wanderer/fw_setenv
+BOOT1=$(/usr/share/u-boot-wanderer/fw_printenv boot_next1 2>/dev/null)
+BOOT2=$(/usr/share/u-boot-wanderer/fw_printenv boot_next2 2>/dev/null)
+BOOT3=$(/usr/share/u-boot-wanderer/fw_printenv boot_next3 2>/dev/null)
 
 if [[ "$DEV" == *"mmcblk0"* ]]; then
 	#Device is mmc0
 	echo "Clear boot_next options for mmc0"
+	if [[ -n $BOOT1 ]]; then
 	$SETENV boot_next1
 	sleep 0.5
+	fi
+	if [[ -n $BOOT2 ]]; then
 	$SETENV boot_next2
 	sleep 0.5
+	fi
+	if [[ -n $BOOT3 ]]; then
 	$SETENV boot_next3
 	sleep 0.5
 	/usr/share/u-boot-wanderer/update-uboot
+	fi
 else
 	echo "Nothing to do for mmc1"
 fi

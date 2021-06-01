@@ -34,14 +34,14 @@ if [[ $BN == "mmc0" ]]; then
         $SETENV bootcmd_next1 "${BOOTCMD_NEXT1}"
         $SETENV bootcmd_next2 "${BOOTCMD_NEXT2}"
         $SETENV bootcmd_next3 "${BOOTCMD_NEXT3}"
-        $SETENV boot_targets "next1 next2 next3 fel pxe usb0 mmc1 mmc1 mmc1 mmc0 mmc0 mmc0"
+        $SETENV boot_targets "next1 next2 next3 fel pxe usb0 mmc1 mmc1 mmc1 mmc1 mmc1 mmc0 mmc0 mmc0 mmc0 mmc0"
         $SETENV boot_next1 $BN
         $SETENV boot_next2 $BN
         $SETENV boot_next3 $BN
 else
         BOOTCMD_NEXT1='sleep 1; if test -e ${boot_next1}; then echo "Try (1) boot next: ${boot_next1}"; bn=${boot_next1}; setenv boot_next1; saveenv; sleep 1; run bootcmd_${bn}; fi'
         $SETENV bootcmd_next1 "${BOOTCMD_NEXT1}"
-        $SETENV boot_targets "next1 next2 next3 fel pxe usb0 mmc1 mmc1 mmc1 mmc0 mmc0 mmc0"
+        $SETENV boot_targets "next1 next2 next3 fel pxe usb0 mmc1 mmc1 mmc1 mmc1 mmc1 mmc0 mmc0 mmc0 mmc0 mmc0"
         $SETENV boot_next1 $BN
 fi
 
