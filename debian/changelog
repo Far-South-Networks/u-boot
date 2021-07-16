@@ -1,3 +1,9 @@
+u-boot-wanderer (1.26) buster; urgency=medium
+
+  * Add a reset at the end of the distro_bootcmd.
+
+ -- Gavin <gavin@farsouthnet.com>  Fri, 16 Jul 2021 11:56:23 +0200
+
 u-boot-wanderer (1.25) buster; urgency=medium
 
   * Add delays for reading the boot files.
