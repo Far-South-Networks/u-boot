@@ -1,4 +1,4 @@
-u-boot-wanderer (1.26) buster; urgency=medium
+u-boot-wanderer (1.27) buster; urgency=medium
 
   * Add a reset at the end of the distro_bootcmd.
 
