@@ -38,7 +38,9 @@ override_dh_shlibdeps:
 	dh_shlibdeps -l /usr/aarch64-linux-gnu/lib
 
 %:
+
 #	dh $@ 
 	dh $@ --with systemd
+
 override_dh_systemd_enable:
 	dh_systemd_enable --name=u-boot-check
