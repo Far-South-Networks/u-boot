@@ -1,3 +1,10 @@
+u-boot-wanderer (1.28) buster; urgency=medium
+
+  * Fix Checkboot script
+  * Fix callback.c reference
+
+ -- Gavin <gavin@farsouthnet.com>  Tue, 21 Sep 2021 12:04:23 +0200
+
 u-boot-wanderer (1.27) buster; urgency=medium
 
   * Add a reset at the end of the distro_bootcmd.

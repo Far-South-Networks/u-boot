@@ -25,15 +25,3 @@ if [[ "$DEV" == *"mmcblk0"* ]]; then
 else
 	echo "Nothing to do for mmc1"
 fi
-
-if [[ "$DEV" == *"mmcblk0"* ]]; then
-        #Device is mmc0
-        echo "Clear boot_next options for mmc0"
-        $SETENV boot_next1
-        sleep 1
-        $SETENV boot_next2
-        sleep 1
-        $SETENV boot_next3
-else
-        echo "Nothing to do for mmc1"
-fi
